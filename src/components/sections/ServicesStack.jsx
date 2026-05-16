@@ -53,6 +53,8 @@ export default function ServicesStack() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (!root.current) return;
+    // Disable pin-based animation on mobile
+    if (window.innerWidth < 769) return;
     const cards = root.current.querySelectorAll(".pin-card");
     if (!cards.length) return;
     

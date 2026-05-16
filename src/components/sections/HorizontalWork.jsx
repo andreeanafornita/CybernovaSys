@@ -28,6 +28,8 @@ export default function HorizontalWork() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (!root.current || !trackRef.current) return;
+    // Disable horizontal scroll on mobile
+    if (window.innerWidth < 769) return;
     const track = trackRef.current;
     const dist = () => track.scrollWidth - window.innerWidth;
     gsap.to(track, {

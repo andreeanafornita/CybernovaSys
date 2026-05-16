@@ -24,7 +24,7 @@ export function ContactHero() {
 
   return (
     <section ref={root} className="section-full surface-teal">
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 56, alignItems: 'center' }}>
+      <div className="container contact-hero-grid">
         <div className="contact-side">
           <span className="eyebrow"><span className="dot">●</span> Tell us what you're building</span>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'clamp(3rem, 1rem + 6vw, 6rem)', lineHeight: 0.98, letterSpacing: '-0.035em', margin: '24px 0 24px' }}>

@@ -5,6 +5,7 @@ const SITE_LINKS = [
   { href: "/work", label: "Work", key: "work" },
   { href: "/studio", label: "Studio", key: "studio" },
   { href: "/process", label: "Process", key: "process" },
+  { href: "/news", label: "News", key: "news" },
   { href: "/contact", label: "Contact", key: "contact" },
 ];
 

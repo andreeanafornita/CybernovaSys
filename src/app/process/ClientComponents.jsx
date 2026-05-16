@@ -45,6 +45,8 @@ export function PinnedSteps() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (!root.current || !trackRef.current) return;
+    // Disable horizontal pin on mobile
+    if (window.innerWidth < 769) return;
     gsap.to(trackRef.current, {
       x: () => -((total - 1) * window.innerWidth),
       ease: 'none',
