@@ -249,6 +249,23 @@ body {
 .nav-cta:hover { background: var(--cs-forest-800); }
 .nav-shell.is-dark .nav-cta:hover { background: var(--cs-cream-200); }
 
+/* Premium flip animation for Nav CTA text */
+.nav-cta-text {
+  display: inline-flex; flex-direction: column;
+  height: 1.1em; overflow: hidden; position: relative;
+}
+.nav-cta-text .front, .nav-cta-text .back {
+  display: block;
+  transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.nav-cta-text .back {
+  position: absolute; top: 100%; left: 0; width: 100%;
+}
+.nav-cta:hover .front { transform: translateY(-100%); }
+.nav-cta:hover .back { transform: translateY(-100%); }
+.nav-cta svg { transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1); }
+.nav-cta:hover svg { transform: translateX(4px) scale(1.1); }
+
 .page-progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--cs-rust); z-index: 51; transform-origin: left; width: 100%; transform: scaleX(0); }
 
 .hero { overflow: hidden; }
