@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 import Orbits from "@/components/graphics/Orbits";
 import Counter from "@/components/ui/Counter";
 
@@ -83,7 +83,7 @@ export function FeaturedCase() {
               <span className="tag">14&#8239;weeks</span>
             </div>
             <div style={{ marginTop: 28 }}>
-              <a className="btn btn-primary" href="#">Read the case <span className="arrow"><ArrowIcon size={16} /></span></a>
+              <a className="btn btn-primary" href="#">Read the case <span className="arrow"><ArrowRight size={16} /></span></a>
             </div>
           </div>
         </div>

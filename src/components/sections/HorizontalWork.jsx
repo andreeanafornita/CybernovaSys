@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 
 function WorkGlyph({ idx }) {
   const sizes = ["340", "300", "380", "320"];
@@ -61,7 +61,7 @@ export default function HorizontalWork() {
             <span className="dot">●</span> Selected work
           </span>
           <Link href="/work" className="btn btn-ghost-dark">
-            All projects <span className="arrow"><ArrowIcon size={14} /></span>
+            All projects <span className="arrow"><ArrowRight size={14} /></span>
           </Link>
         </div>
       </div>

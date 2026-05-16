@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { StarIcon } from "@/components/icons";
+import { Star } from "lucide-react";
 
 export default function Marquee({ items, surface = "ink", speed = 60 }) {
   const trackRef = useRef(null);
@@ -31,7 +31,7 @@ export default function Marquee({ items, surface = "ink", speed = 60 }) {
         {all.map((it, i) => (
           <span className="marquee-item" key={i}>
             <span className="star">
-              <StarIcon size={18} />
+              <Star size={18} />
             </span>
             {it}
           </span>

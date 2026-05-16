@@ -252,7 +252,8 @@ body {
 /* Premium flip animation for Nav CTA text */
 .nav-cta-text {
   display: inline-flex; flex-direction: column;
-  height: 1.1em; overflow: hidden; position: relative;
+  height: 1.25em; overflow: hidden; position: relative;
+  line-height: 1.25;
 }
 .nav-cta-text .front, .nav-cta-text .back {
   display: block;
@@ -551,130 +552,471 @@ body {
   .footer-fine { flex-direction: column; gap: 8px; }
 }
 
-/* ============ Neon Services Bento Grid ============ */
-:root {
-  --neon-green: #00ff00;
-  --neon-bg: #0a0a0a;
-  --neon-card-bg: #111111;
-  --neon-white: #ffffff;
-}
-
-.neon-bento-section {
-  background-color: var(--neon-bg);
-  padding: 96px 0;
-  color: var(--neon-white);
-}
-
-.neon-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  opacity: 0.6;
-  display: inline-flex; gap: 10px; align-items: center;
-}
-
-.neon-bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 240px;
-  gap: 16px;
-}
-
-.neon-bento-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 32px;
-  border-radius: 12px;
-  background-color: var(--neon-card-bg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 300ms var(--ease-out), border-color 300ms, box-shadow 300ms;
-  position: relative;
+/* ============ Interactive Services List ============ */
+.services-list-section {
+  padding: 120px 0;
+  background-color: var(--cs-forest);
+  color: var(--cs-cream);
   overflow: hidden;
 }
 
-.neon-bento-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--neon-green);
+.services-list-header {
+  margin-bottom: 80px;
 }
 
-.neon-bento-card.--glow:hover {
-  box-shadow: 0 0 32px 0 rgba(0, 255, 0, 0.2);
-}
-
-.neon-bento-top {
+.services-list {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  border-top: 1px solid color-mix(in oklab, var(--cs-cream) 15%, transparent);
 }
 
-.neon-bento-icon {
-  font-size: 32px;
-  line-height: 1;
+.service-row {
+  display: grid;
+  grid-template-columns: 60px 1.5fr 1fr 240px;
+  gap: 32px;
+  align-items: center;
+  padding: 56px 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--cs-cream) 15%, transparent);
+  transition: border-color 400ms ease;
+  cursor: pointer;
+  position: relative;
 }
 
-.neon-bento-arrow {
+.service-row::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -24px; right: -24px; bottom: 0;
+  background: color-mix(in oklab, var(--cs-cream) 2%, transparent);
   opacity: 0;
-  transform: translate(-8px, 8px);
-  transition: opacity 300ms, transform 300ms var(--ease-out);
-  color: var(--neon-green);
+  transform: scaleY(0.8);
+  transition: all 500ms cubic-bezier(0.25, 1, 0.5, 1);
+  border-radius: 16px;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.neon-bento-card:hover .neon-bento-arrow {
+.service-row:hover {
+  border-bottom-color: color-mix(in oklab, var(--cs-cream) 40%, transparent);
+  z-index: 10;
+}
+
+.service-row:hover::before {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: scaleY(1);
 }
 
-.neon-bento-bottom h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
-  letter-spacing: -0.01em;
-  margin: 0;
-  color: var(--neon-white);
+.service-row > * {
+  position: relative;
+  z-index: 1;
 }
 
-.neon-bento-stats {
+.service-num {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
+  opacity: 0.4;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.6;
-  margin-top: 8px;
+  transition: opacity 400ms ease;
 }
 
-.neon-bento-desc {
-  font-size: 14.5px;
+.service-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.02em;
+  transform-origin: left;
+  transition: transform 500ms cubic-bezier(0.25, 1, 0.5, 1), color 400ms ease;
+}
+
+.service-row:hover .service-title {
+  transform: translateX(24px);
+  color: var(--hover-color, var(--cs-teal));
+}
+.service-row:hover .service-num {
+  opacity: 0.8;
+  color: var(--hover-color, var(--cs-teal));
+}
+
+.service-desc-wrapper {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 500ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-row:hover .service-desc-wrapper {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-desc-wrapper p {
+  font-size: 16px;
   line-height: 1.5;
   opacity: 0.8;
-  margin-top: 8px;
+  margin: 0;
+  max-width: 32ch;
 }
 
-.neon-bento-badge {
-  display: inline-block;
+/* ============ WOW 3D Card Hover Effect ============ */
+.service-3d-scene {
+  perspective: 1200px;
+  width: 240px;
+  height: 160px;
+  justify-self: end;
+  pointer-events: none;
+}
+
+.service-3d-card {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Initial state: pushed back, tilted heavily, invisible */
+  transform: rotateX(45deg) rotateY(-30deg) translateZ(-100px) scale(0.6);
+  opacity: 0;
+  transition: all 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -20px 40px 60px -20px rgba(0,0,0,0.5);
+}
+
+/* The light sheen that slides across the glass */
+.service-3d-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%; width: 50%; height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-25deg);
+  transition: left 800ms ease;
+}
+
+.service-row:hover .service-3d-card {
+  /* Hover state: pops out towards the user with a slight dynamic tilt */
+  transform: rotateX(10deg) rotateY(-10deg) translateZ(30px) scale(1);
+  opacity: 1;
+  border-color: color-mix(in oklab, var(--hover-color) 40%, transparent);
+  box-shadow: -15px 30px 50px -15px color-mix(in oklab, var(--hover-color) 25%, black);
+}
+
+.service-row:hover .service-3d-card::after {
+  left: 200%; /* Slide the light ray */
+}
+
+/* The glowing backdrop inside the card */
+.service-3d-glow {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, var(--hover-color) 0%, transparent 60%);
+  opacity: 0.15;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.service-3d-icon {
+  color: var(--cs-cream);
+  filter: drop-shadow(0 0 16px var(--hover-color));
+  z-index: 1;
+  transform: translateZ(20px); /* Parallax inside the card! */
+}
+
+.service-3d-text {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  background: var(--neon-green);
-  color: var(--neon-bg);
-  padding: 6px 12px;
-  border-radius: 99px;
-  margin-top: 16px;
-  font-weight: 700;
-  box-shadow: 0 0 16px 0 rgba(0, 255, 0, 0.4);
+  color: var(--cs-cream);
+  opacity: 0.6;
+  z-index: 1;
+  transform: translateZ(10px);
 }
 
-@media (max-width: 900px) {
-  .neon-bento-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+@media (max-width: 1024px) {
+  .service-row {
+    grid-template-columns: 40px 1fr 1fr;
+    gap: 16px;
   }
-  .neon-bento-card {
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
-    min-height: 220px;
+  .service-3d-scene { display: none; }
+}
+
+/* ============ Shop Editorial Redesign ============ */
+.shop-exhibit-section {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.shop-exhibit-container {
+  display: flex;
+  width: 300vw; /* 3 panels */
+  height: 100vh;
+}
+
+.shop-exhibit-panel {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5vw;
+}
+
+.shop-exhibit-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  width: 100%;
+  max-width: 1600px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .shop-exhibit-section {
+    height: auto;
+    overflow: visible;
+  }
+  .shop-exhibit-container {
+    width: 100vw;
+    display: block;
+    height: auto;
+  }
+  .shop-exhibit-panel {
+    height: auto;
+    min-height: 100vh;
+    padding: 120px 24px;
+  }
+  .shop-exhibit-content {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
+/* Left Side: Typography */
+.shop-exhibit-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.exhibit-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+  margin-bottom: 24px;
+}
+
+.exhibit-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: var(--cs-cream);
+  margin-bottom: 16px;
+}
+
+.exhibit-tagline {
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 300;
+  color: var(--pc-color);
+  margin-bottom: 32px;
+}
+
+.exhibit-desc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  opacity: 0.7;
+  max-width: 45ch;
+  margin-bottom: 64px;
+}
+
+.exhibit-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 64px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 24px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  width: 100px;
+}
+
+.spec-val {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.exhibit-action {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.exhibit-price {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.exhibit-btn {
+  background: var(--cs-cream);
+  color: #111111;
+  padding: 16px 32px;
+  border-radius: 40px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  cursor: pointer;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  text-decoration: none;
+}
+
+.exhibit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px var(--cs-cream);
+}
+
+/* Right Side: The Minimalist Monolith Graphic */
+.shop-exhibit-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+}
+
+.monolith-container {
+  width: 280px;
+  height: 560px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(-15deg) rotateX(5deg);
+}
+
+@media (max-width: 768px) {
+  .monolith-container {
+    width: 200px;
+    height: 400px;
+  }
+}
+
+.monolith {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 
+    30px 40px 60px -20px rgba(0,0,0,0.8),
+    inset 1px 1px 0 rgba(255,255,255,0.1),
+    inset -1px -1px 0 rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.monolith::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+  transform: skewX(-20deg) translateX(-150%);
+  animation: monolith-shine 8s ease-in-out infinite;
+}
+
+.monolith-reflection {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 40%);
+}
+
+.monolith-glow {
+  position: absolute;
+  bottom: -20px; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 2px;
+  background: var(--pc-color);
+  box-shadow: 0 0 40px 10px color-mix(in oklab, var(--pc-color) 40%, transparent);
+}
+
+@keyframes monolith-shine {
+  0%, 20% { transform: skewX(-20deg) translateX(-150%); }
+  80%, 100% { transform: skewX(-20deg) translateX(150%); }
+}
+
+.purchase-cta:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px -10px var(--cs-cream);
+}
+
+@media (max-width: 768px) {
+  .sticky-purchase-bar {
+    width: calc(100% - 48px);
+    flex-direction: column;
+    padding: 16px !important;
+    gap: 16px !important;
+    border-radius: 24px !important;
+  }
+  .sticky-purchase-bar .purchase-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-list-section { padding: 80px 0; }
+  .services-list-header { margin-bottom: 40px; }
+  
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 0;
+  }
+  
+  .service-row::before { display: none; }
+  
+  .service-num { margin-bottom: 8px; }
+  
+  .service-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .service-row:hover .service-title {
+    transform: none;
+    color: var(--cs-cream);
+  }
+  
+  .service-desc-wrapper {
+    opacity: 1;
+    transform: none;
+    margin-top: 8px;
+  }
+  
+  .service-desc-wrapper p {
+    max-width: 100%;
+    font-size: 15px;
   }
 }
 

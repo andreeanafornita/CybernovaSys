@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 
 export function ContactHero() {
@@ -74,7 +74,7 @@ export function ContactHero() {
                 </div>
               </div>
               <div className="field"><label>The shape of the thing</label><textarea value={form.message} onChange={set('message')} placeholder="A paragraph is plenty — the problem, the audience, the rough timeline." required /></div>
-              <button className="btn btn-primary" type="submit" style={{ alignSelf: 'flex-start' }}>Send brief <span className="arrow"><ArrowIcon size={16} /></span></button>
+              <button className="btn btn-primary" type="submit" style={{ alignSelf: 'flex-start' }}>Send brief <span className="arrow"><ArrowRight size={16} /></span></button>
             </>
           )}
         </form>

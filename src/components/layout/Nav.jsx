@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 import PageProgress from "@/components/ui/PageProgress";
 
 const SITE_LINKS = [
@@ -11,6 +11,7 @@ const SITE_LINKS = [
   { href: "/work", label: "Work", key: "work" },
   { href: "/studio", label: "Studio", key: "studio" },
   { href: "/process", label: "Process", key: "process" },
+  { href: "/shop", label: "Shop", key: "shop" },
   { href: "/news", label: "News", key: "news" },
 ];
 
@@ -19,7 +20,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const theme = ["/work", "/process"].includes(pathname) ? "dark" : "light";
+  const theme = ["/work", "/process", "/shop"].includes(pathname) ? "dark" : "light";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -55,7 +56,7 @@ export default function Nav() {
           ))}
           <Link href="/contact" className="nav-cta nav-cta--mobile">
             <span>Start a project</span>
-            <ArrowIcon size={14} />
+            <ArrowRight size={14} />
           </Link>
         </nav>
         <Link href="/contact" className="nav-cta nav-cta--desktop">
@@ -63,7 +64,7 @@ export default function Nav() {
             <span className="front">Start a project</span>
             <span className="back">Let&apos;s build it</span>
           </span>
-          <ArrowIcon size={14} />
+          <ArrowRight size={14} />
         </Link>
         <button
           className="nav-hamburger"

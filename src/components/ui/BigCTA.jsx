@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 
 export default function BigCTA({ heading, sub, theme = "rust", primaryHref = "/contact" }) {
   const root = useRef(null);
@@ -52,7 +52,7 @@ export default function BigCTA({ heading, sub, theme = "rust", primaryHref = "/c
         )}
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
           <Link className={`btn ${btnCls}`} href={primaryHref}>
-            Start a project <span className="arrow"><ArrowIcon size={16} /></span>
+            Start a project <span className="arrow"><ArrowRight size={16} /></span>
           </Link>
           <Link
             className={theme === "teal" ? "btn btn-ghost-dark" : "btn btn-ghost-light"}

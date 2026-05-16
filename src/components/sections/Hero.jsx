@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 import Orbits from "@/components/graphics/Orbits";
 import Counter from "@/components/ui/Counter";
 
@@ -65,7 +65,7 @@ export default function Hero() {
         </p>
         <div className="hero-cta-row">
           <Link className="btn btn-primary" href="/contact">
-            Start a project <span className="arrow"><ArrowIcon size={16} /></span>
+            Start a project <span className="arrow"><ArrowRight size={16} /></span>
           </Link>
           <Link className="btn btn-ghost-dark" href="/work">
             See our work
