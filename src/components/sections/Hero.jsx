@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import Orbits from "@/components/graphics/Orbits";
 import Counter from "@/components/ui/Counter";
 
-export default function Hero() {
+export default function Hero({ t, lang }) {
   const root = useRef(null);
 
   useGSAP(() => {
@@ -26,33 +26,28 @@ export default function Hero() {
       .from(root.current.querySelectorAll(".hero-meta .stat"), { y: 18, opacity: 0, stagger: 0.08, duration: 0.6 }, "-=0.3");
   }, { scope: root });
 
-  const headline = ["Websites,", "web apps,", "mobile apps —"];
-  const headline2 = ["shipped,", "not", "shelved."];
-
   return (
     <section ref={root} className="section-full hero surface-teal">
       <Orbits tone="forest" />
       <div className="container hero-grid">
         <span className="eyebrow hero-eyebrow">
-          <span className="dot">●</span> Cybernova Systems · Est. 2021
+          <span className="dot">●</span> {t.eyebrow}
         </span>
         <h1 className="display-1">
           <span className="split-line">
-            {headline.map((w, i) => (
-              <span key={i} className="split-word" style={{ paddingRight: "0.18em" }}>
-                {w}
-              </span>
+            {t.headlineLine1.map((w, i) => (
+              <span key={i} className="split-word" style={{ paddingRight: "0.18em" }}>{w}</span>
             ))}
           </span>
           <span className="split-line">
-            {headline2.map((w, i) => (
+            {t.headlineLine2.map((w, i) => (
               <span
                 key={i}
                 className="split-word"
                 style={{
                   paddingRight: "0.18em",
-                  color: i === 2 ? "var(--cs-rust)" : "inherit",
-                  fontStyle: i === 2 ? "italic" : "normal",
+                  color: i === t.headlineLine2.length - 1 ? "var(--cs-rust)" : "inherit",
+                  fontStyle: i === t.headlineLine2.length - 1 ? "italic" : "normal",
                 }}
               >
                 {w}
@@ -60,34 +55,22 @@ export default function Hero() {
             ))}
           </span>
         </h1>
-        <p className="lead">
-          We're a small product studio building the digital surfaces growing teams actually launch — fast, calm, and built to last past the demo.
-        </p>
+        <p className="lead">{t.lead}</p>
         <div className="hero-cta-row">
-          <Link className="btn btn-primary" href="/contact">
-            Start a project <span className="arrow"><ArrowRight size={16} /></span>
+          <Link className="btn btn-primary" href={`/${lang}/contact`}>
+            {t.cta1} <span className="arrow"><ArrowRight size={16} /></span>
           </Link>
-          <Link className="btn btn-ghost-dark" href="/work">
-            See our work
+          <Link className="btn btn-ghost-dark" href={`/${lang}/work`}>
+            {t.cta2}
           </Link>
         </div>
         <div className="hero-meta">
-          <div className="stat">
-            <span className="n"><Counter to={48} suffix="+" /></span>
-            <span className="l">Products shipped</span>
-          </div>
-          <div className="stat">
-            <span className="n"><Counter to={6} /></span>
-            <span className="l">Year average client</span>
-          </div>
-          <div className="stat">
-            <span className="n"><Counter to={12} /></span>
-            <span className="l">Senior crew</span>
-          </div>
-          <div className="stat">
-            <span className="n"><Counter to={3} /></span>
-            <span className="l">Continents shipped to</span>
-          </div>
+          {t.stats.map((s, i) => (
+            <div key={i} className="stat">
+              <span className="n"><Counter to={s.n} suffix={s.suffix} /></span>
+              <span className="l">{s.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

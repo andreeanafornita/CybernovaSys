@@ -1,29 +1,7 @@
-import Hero from "@/components/sections/Hero";
-import Marquee from "@/components/ui/Marquee";
-import Manifesto from "@/components/sections/Manifesto";
-import ServicesStack from "@/components/sections/ServicesStack";
-import HorizontalWork from "@/components/sections/HorizontalWork";
-import ServicesBento from "@/components/sections/ServicesBento";
-import BigCTA from "@/components/ui/BigCTA";
+// Root page — middleware redirects to /en or /ro before this renders.
+// This is a safety fallback only.
+import { redirect } from "next/navigation";
 
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Marquee
-        items={["Cybernova Systems", "Websites", "Web apps", "Mobile apps", "Brand systems", "Made in EU"]}
-        surface="ink"
-        speed={70}
-      />
-      <Manifesto />
-      <ServicesStack />
-      <HorizontalWork />
-      <ServicesBento />
-      <BigCTA
-        heading={["Have a thing", "to ship?"]}
-        sub="We take on six to eight projects a year. The next intake is open through August 2026."
-        theme="rust"
-      />
-    </>
-  );
+export default function RootPage() {
+  redirect("/en");
 }

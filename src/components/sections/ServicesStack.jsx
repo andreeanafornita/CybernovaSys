@@ -47,19 +47,20 @@ function ServiceGlyph({ idx }) {
   );
 }
 
-export default function ServicesStack() {
+const TONES = ["", "--rust", "--teal"];
+
+export default function ServicesStack({ t }) {
   const root = useRef(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (!root.current) return;
-    // Disable pin-based animation on mobile
     if (window.innerWidth < 769) return;
     const cards = root.current.querySelectorAll(".pin-card");
     if (!cards.length) return;
-    
+
     const total = cards.length;
-    const stickyOffset = 30; // px stack offset per card
+    const stickyOffset = 30;
 
     gsap.set(cards, { yPercent: (i) => (i === 0 ? 0 : 100), scale: 1, zIndex: (i) => i + 1 });
 
@@ -81,44 +82,20 @@ export default function ServicesStack() {
     });
   }, { scope: root });
 
-  const services = [
-    {
-      tone: "",
-      num: "01 / Service",
-      title: "Marketing websites",
-      body: "Sites that load fast, scale to a hundred pages, and hold up the day a co-founder rewrites the homepage at 11pm. Built in Next.js, deployed on the edge.",
-      points: ["Editorial CMS workflows", "Edge-rendered, A+ Lighthouse", "Motion + interaction direction", "Analytics & A/B from day one"],
-    },
-    {
-      tone: "--rust",
-      num: "02 / Service",
-      title: "Web applications",
-      body: "Internal tools, dashboards, customer portals — typed end-to-end and instrumented from the first commit. Designed to be lived in, not just demoed.",
-      points: ["Typed Next.js + tRPC stack", "Auth, billing, roles, audits", "Realtime + background jobs", "Observability built in"],
-    },
-    {
-      tone: "--teal",
-      num: "03 / Service",
-      title: "Mobile apps",
-      body: "Native-feeling iOS and Android apps for products where the phone is the product. Designed in lockstep with the web so customers see one brand, three surfaces.",
-      points: ["React Native + Expo", "Push, deep-links, sharing", "Offline-first data sync", "TestFlight + Play console ops"],
-    },
-  ];
-
   return (
     <section ref={root} className="section-full surface-paper-2 pin-stack-shell tight">
       <div className="container">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 16, marginBottom: 32 }}>
           <span className="eyebrow">
-            <span className="dot">●</span> What we make
+            <span className="dot">●</span> {t.eyebrow}
           </span>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, opacity: 0.6, letterSpacing: "0.14em", textTransform: "uppercase" }}>
-            Scroll to stack
+            {t.scrollHint}
           </span>
         </div>
         <div className="pin-stack-cards" style={{ minHeight: "70vh" }}>
-          {services.map((s, i) => (
-            <article key={i} className={`pin-card ${s.tone}`}>
+          {t.services.map((s, i) => (
+            <article key={i} className={`pin-card ${TONES[i] || ""}`}>
               <div>
                 <span className="num">{s.num}</span>
                 <h3>{s.title}</h3>

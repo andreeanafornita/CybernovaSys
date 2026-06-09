@@ -21,14 +21,15 @@ function WorkGlyph({ idx }) {
   );
 }
 
-export default function HorizontalWork() {
+const TONES = ["", "--ink", "--rust", "--teal"];
+
+export default function HorizontalWork({ t, lang }) {
   const root = useRef(null);
   const trackRef = useRef(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (!root.current || !trackRef.current) return;
-    // Disable horizontal scroll on mobile
     if (window.innerWidth < 769) return;
     const track = trackRef.current;
     const dist = () => track.scrollWidth - window.innerWidth;
@@ -46,28 +47,21 @@ export default function HorizontalWork() {
     });
   }, { scope: root });
 
-  const cases = [
-    { tone: "", meta: ["EstateX", "2025 · Web app"], title: "Listing engine for an estate portal", desc: "Typed Next.js front, Postgres/Prisma back, Mapbox-driven search. Replaced a creaking PHP build in 14 weeks." },
-    { tone: "--ink", meta: ["FloteAuto", "2025 · Mobile + Web"], title: "Owner-mechanic app, end-to-end", desc: "Service log, photo intake, parts SKU lookup. Native iOS/Android and a workshop dashboard, designed in lockstep." },
-    { tone: "--rust", meta: ["Notariat Azur", "2024 · Marketing site"], title: "Editorial relaunch for a notary office", desc: "Calm, rigorous, French-bilingual. Booking flow attached to their case-management API." },
-    { tone: "--teal", meta: ["Loop Café", "2024 · Web app"], title: "Subscription coffee, run on Stripe", desc: "Self-serve management, pause/resume, gift flows. Two-week build, three years and counting in production." },
-  ];
-
   return (
     <section ref={root} className="section-full surface-paper h-scroll-shell tight">
       <div className="container" style={{ marginBottom: 28 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, flexWrap: "wrap" }}>
           <span className="eyebrow">
-            <span className="dot">●</span> Selected work
+            <span className="dot">●</span> {t.eyebrow}
           </span>
-          <Link href="/work" className="btn btn-ghost-dark">
-            All projects <span className="arrow"><ArrowRight size={14} /></span>
+          <Link href={`/${lang}/work`} className="btn btn-ghost-dark">
+            {t.allProjects} <span className="arrow"><ArrowRight size={14} /></span>
           </Link>
         </div>
       </div>
       <div className="h-scroll-track" ref={trackRef}>
-        {cases.map((c, i) => (
-          <article key={i} className={`h-scroll-card ${c.tone}`}>
+        {t.cases.map((c, i) => (
+          <article key={i} className={`h-scroll-card ${TONES[i] || ""}`}>
             <div className="top">
               <span>{c.meta[0]}</span>
               <span>{c.meta[1]}</span>

@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-export default function Manifesto() {
+export default function Manifesto({ t }) {
   const root = useRef(null);
 
   useGSAP(() => {
@@ -26,7 +26,8 @@ export default function Manifesto() {
     });
   }, { scope: root });
 
-  const text = "We design and build calm, opinionated software. We make the call when it matters. We ship — then we sharpen. Our work runs in production for years, not weeks.".split(" ");
+  const text = t.text.split(" ");
+  const emphasisWords = t.emphasisWords || [];
 
   return (
     <section ref={root} className="section-full surface-paper">
@@ -37,7 +38,7 @@ export default function Manifesto() {
         </aside>
         <p className="manifesto-text">
           {text.map((w, i) => {
-            const em = ["ship", "sharpen.", "production"].some((s) => w.includes(s));
+            const em = emphasisWords.some((s) => w.includes(s));
             return (
               <span key={i} className={`w ${em ? "em" : ""}`}>
                 {w}
