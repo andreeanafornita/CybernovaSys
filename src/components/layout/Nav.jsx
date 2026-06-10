@@ -76,6 +76,15 @@ export default function Nav({ lang, t }) {
             <span>{t.cta}</span>
             <ArrowRight size={14} />
           </Link>
+          {/* Language switcher inside mobile menu */}
+          <button
+            className="nav-lang-switch nav-lang-switch--mobile-menu"
+            onClick={switchLang}
+            aria-label={t.langSwitchLabel}
+            title={t.langSwitchLabel}
+          >
+            {t.langSwitch}
+          </button>
         </nav>
 
         {/* Desktop right side: lang switcher + CTA */}

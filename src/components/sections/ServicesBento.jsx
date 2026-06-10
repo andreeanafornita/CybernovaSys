@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Globe, AppWindow, Sparkles, ShoppingBag, Target, Smartphone } from "lucide-react";
+import { Globe, AppWindow, Sparkles, ShoppingBag, Target, Smartphone, Megaphone, Bot } from "lucide-react";
 
 const ICONS = {
   web: Globe,
@@ -13,6 +13,8 @@ const ICONS = {
   brand: Sparkles,
   audit: Target,
   ecommerce: ShoppingBag,
+  ads: Megaphone,
+  ai: Bot,
 };
 
 export default function ServicesBento({ t }) {
@@ -21,9 +23,25 @@ export default function ServicesBento({ t }) {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (!root.current) return;
-    gsap.from(root.current.querySelectorAll(".service-row"), {
-      y: 30, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out",
-      scrollTrigger: { trigger: root.current, start: "top 80%" },
+
+    // Animate each row individually as it enters viewport
+    const rows = root.current.querySelectorAll(".service-row");
+    rows.forEach((row, i) => {
+      gsap.fromTo(
+        row,
+        { y: 48, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: row,
+            start: "top 88%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
     });
   }, { scope: root });
 

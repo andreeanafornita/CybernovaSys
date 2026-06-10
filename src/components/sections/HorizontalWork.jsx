@@ -2,12 +2,24 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "lucide-react";
 
-function WorkGlyph({ idx }) {
+function WorkGlyph({ idx, img }) {
+  if (img) {
+    return (
+      <Image
+        src={img}
+        alt=""
+        fill
+        sizes="(max-width: 768px) 100vw, 720px"
+        style={{ objectFit: "cover", opacity: 0.85 }}
+      />
+    );
+  }
   const sizes = ["340", "300", "380", "320"];
   return (
     <svg width={sizes[idx % sizes.length]} height={sizes[idx % sizes.length]} viewBox="0 0 400 400" fill="none" stroke="currentColor" strokeWidth="1">
@@ -67,7 +79,7 @@ export default function HorizontalWork({ t, lang }) {
               <span>{c.meta[1]}</span>
             </div>
             <div className="img">
-              <WorkGlyph idx={i} />
+              <WorkGlyph idx={i} img={c.img} />
             </div>
             <h3>{c.title}</h3>
             <p className="desc">{c.desc}</p>

@@ -34,19 +34,22 @@ export async function generateMetadata({ params }) {
   const isRo = lang === "ro";
   return {
     title: isRo
-      ? "Cybernova Systems — Website-uri, aplicații web, mobile"
-      : "Cybernova Systems — Websites, web apps, mobile apps",
+      ? "Cybernova Systems — Website-uri, Aplicații Web & Mobile, Google Ads, TikTok Ads"
+      : "Cybernova Systems — Custom Websites, Web Apps, Mobile Apps & Digital Ads",
     description: isRo
-      ? "Un studio independent care construiește website-uri, aplicații web și mobile pentru echipe care lansează lucruri noi."
-      : "An independent product studio building websites, web apps, and mobile apps for teams shipping the next thing.",
+      ? "Agenție digitală din România: construim website-uri profesionale, aplicații web și mobile, magazine online, și gestionăm campanii Google Ads, Facebook Ads, Instagram Ads și TikTok Ads. Automatizări AI pentru orice afacere B2C sau B2B."
+      : "Digital agency: custom websites, web apps, mobile apps, e-commerce stores, Google Ads, Facebook Ads, Instagram Ads, TikTok Ads management, and AI automation for B2C and B2B businesses.",
     metadataBase: new URL("https://cybernova.systems"),
+    keywords: isRo
+      ? ["website", "aplicatie web", "aplicatie mobila", "google ads", "facebook ads", "instagram ads", "tiktok ads", "magazine online", "automatizari AI", "agentie digitala", "web design", "dezvoltare software"]
+      : ["website design", "web app development", "mobile app", "google ads agency", "facebook ads", "instagram ads", "tiktok ads", "e-commerce", "AI automation", "digital agency"],
     openGraph: {
       title: isRo
-        ? "Cybernova Systems — Website-uri, aplicații web, mobile"
-        : "Cybernova Systems — Websites, web apps, mobile apps",
+        ? "Cybernova Systems — Website-uri, Aplicații Web & Mobile, Google Ads, TikTok Ads"
+        : "Cybernova Systems — Custom Websites, Web Apps, Mobile Apps & Digital Ads",
       description: isRo
-        ? "Un studio independent care construiește website-uri, aplicații web și mobile pentru echipe care lansează lucruri noi."
-        : "An independent product studio building websites, web apps, and mobile apps for teams shipping the next thing.",
+        ? "Agenție digitală: website-uri, aplicații web și mobile, magazine online, Google Ads, Facebook Ads, Instagram Ads, TikTok Ads și automatizări AI."
+        : "Custom websites, web & mobile apps, e-commerce, Google Ads, Facebook Ads, TikTok Ads, and AI automation. Everything to grow your business online.",
       type: "website",
       locale: isRo ? "ro_RO" : "en_US",
       siteName: "Cybernova Systems",
@@ -77,16 +80,31 @@ export default async function LangLayout({ children, params }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               name: "Cybernova Systems",
               url: "https://cybernova.systems",
               description:
-                "An independent product studio building websites, web apps, and mobile apps.",
+                "Digital agency specializing in custom website design, web app development, mobile apps, e-commerce, Google Ads, Facebook Ads, Instagram Ads, TikTok Ads management, and AI automation for B2C and B2B businesses.",
               foundingDate: "2021",
+              areaServed: "Worldwide",
               contactPoint: {
                 "@type": "ContactPoint",
                 email: "hello@cybernova.systems",
                 contactType: "customer service",
+              },
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Digital Services",
+                itemListElement: [
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Website Design & Development" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Application Development" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development (iOS & Android)" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "E-Commerce Store Development" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Google Ads Management" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Facebook & Instagram Ads Management" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "TikTok Ads Management" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Automation & Business Automation" } },
+                ],
               },
             }),
           }}

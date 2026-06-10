@@ -313,7 +313,7 @@ body {
 .h-scroll-card .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; }
 .h-scroll-card h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem); letter-spacing: -0.02em; margin-top: auto; }
 .h-scroll-card .desc { font-size: 15px; line-height: 1.5; margin-top: 10px; opacity: 0.82; max-width: 46ch; }
-.h-scroll-card .img { position: absolute; inset: 0; opacity: 0.18; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.h-scroll-card .img { position: absolute; inset: 0; opacity: 0.25; display: flex; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; }
 .h-scroll-card.--ink { background: var(--cs-forest); color: var(--cs-cream); box-shadow: 8px 8px 0 0 var(--cs-rust); }
 .h-scroll-card.--rust { background: var(--cs-rust); color: var(--cs-cream); box-shadow: 8px 8px 0 0 var(--cs-forest); }
 .h-scroll-card.--teal { background: var(--cs-teal); color: var(--cs-forest); box-shadow: 8px 8px 0 0 var(--cs-forest); }
@@ -508,6 +508,39 @@ body {
 .nav-cta--mobile { display: none; }
 .nav-cta--desktop { display: inline-flex; }
 
+/* Mobile menu lang switch — inside sidebar, always visible */
+.nav-lang-switch--mobile-menu {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--cs-forest);
+  color: var(--cs-cream);
+  border: 2px solid var(--cs-forest);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background 200ms var(--ease-out), color 200ms, transform 140ms var(--ease-out);
+  line-height: 1;
+  margin-top: 8px;
+}
+.nav-lang-switch--mobile-menu:hover {
+  background: var(--cs-rust);
+  border-color: var(--cs-rust);
+  color: var(--cs-cream);
+  transform: scale(1.04);
+}
+.nav-shell.is-dark .nav-links .nav-lang-switch--mobile-menu {
+  background: var(--cs-cream);
+  color: var(--cs-forest);
+  border-color: var(--cs-cream);
+}
+.nav-shell.is-dark .nav-links .nav-lang-switch--mobile-menu:hover {
+  background: var(--cs-teal);
+  border-color: var(--cs-teal);
+}
+
 @media (max-width: 768px) {
   .nav-hamburger { display: flex; }
   .nav-right { display: none; }
@@ -522,7 +555,13 @@ body {
   .nav-links.is-open { opacity: 1; pointer-events: auto; }
   .nav-links a { font-size: 24px; font-weight: 600; }
   .nav-links a::after { display: none; }
-  .nav-cta--mobile { display: inline-flex; margin-top: 16px; }
+  .nav-cta--mobile {
+    display: inline-flex;
+    margin-top: 16px;
+    background: var(--cs-forest) !important;
+    color: var(--cs-cream) !important;
+    border: none;
+  }
 }
 
 /* ============ Hero Mobile ============ */
@@ -668,11 +707,12 @@ body {
 }
 
 .service-desc-wrapper {
-  opacity: 0;
-  transform: translateX(-20px);
+  opacity: 1;
+  transform: translateX(0);
   transition: all 500ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* On desktop with wider layout, keep the reveal-on-hover subtle tint on the text */
 .service-row:hover .service-desc-wrapper {
   opacity: 1;
   transform: translateX(0);

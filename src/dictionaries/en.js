@@ -42,81 +42,81 @@ const en = {
 
   /* ─── Home ───────────────────────────────────────────────── */
   hero: {
-    eyebrow: "Cybernova Systems · Est. 2021",
-    headlineLine1: ["Websites,", "web apps,", "mobile apps —"],
-    headlineLine2: ["shipped,", "not", "shelved."],
-    lead: "We're a small product studio building the digital surfaces growing teams actually launch — fast, calm, and built to last past the demo.",
+    eyebrow: "Cybernova Systems · Digital Agency Since 2021",
+    headlineLine1: ["We build websites,", "apps &"],
+    headlineLine2: ["run ads", "that", "convert."],
+    lead: "We create custom websites, mobile apps, and online stores — and we run Google, Facebook, Instagram, and TikTok ads that bring real customers to your business. Everything your brand needs to grow online, in one place.",
     cta1: "Start a project",
     cta2: "See our work",
     stats: [
-      { n: 48, suffix: "+", label: "Products shipped" },
-      { n: 6,  suffix: "",  label: "Year average client" },
-      { n: 12, suffix: "",  label: "Senior crew" },
-      { n: 3,  suffix: "",  label: "Continents shipped to" },
+      { n: 48, suffix: "+", label: "Projects delivered" },
+      { n: 6,  suffix: "+", label: "Years average client" },
+      { n: 12, suffix: "",  label: "Specialists on team" },
+      { n: 3,  suffix: "",  label: "Continents served" },
     ],
   },
 
   marquee: {
-    items: ["Cybernova Systems", "Websites", "Web apps", "Mobile apps", "Brand systems", "Made in EU"],
+    items: ["Cybernova Systems", "Websites", "Web Apps", "Mobile Apps", "Google Ads", "Meta Ads", "TikTok Ads", "AI Automation", "Made in EU"],
   },
 
   manifesto: {
-    text: "We design and build calm, opinionated software. We make the call when it matters. We ship — then we sharpen. Our work runs in production for years, not weeks.",
-    emphasisWords: ["ship", "sharpen.", "production"],
+    text: "Every business deserves a powerful online presence. We build websites and apps that look great, load fast, and turn visitors into customers — then we run ads that keep them coming back.",
+    emphasisWords: ["powerful", "customers", "ads"],
   },
 
   servicesStack: {
-    eyebrow: "What we make",
-    scrollHint: "Scroll to stack",
+    eyebrow: "What we do",
+    scrollHint: "Scroll to explore",
     services: [
       {
         num: "01 / Service",
-        title: "Marketing websites",
-        body: "Sites that load fast, scale to a hundred pages, and hold up the day a co-founder rewrites the homepage at 11pm. Built in Next.js, deployed on the edge.",
-        points: ["Editorial CMS workflows", "Edge-rendered, A+ Lighthouse", "Motion + interaction direction", "Analytics & A/B from day one"],
+        title: "Custom Websites & Online Stores",
+        body: "We design and build professional websites and e-commerce stores for any type of business — whether you sell products online, offer services, or want to showcase your brand. Fast, modern, and built to grow with you.",
+        points: ["Presentation & portfolio sites", "Online stores (e-commerce)", "Booking & reservation platforms", "B2B & B2C websites"],
       },
       {
         num: "02 / Service",
-        title: "Web applications",
-        body: "Internal tools, dashboards, customer portals — typed end-to-end and instrumented from the first commit. Designed to be lived in, not just demoed.",
-        points: ["Typed Next.js + tRPC stack", "Auth, billing, roles, audits", "Realtime + background jobs", "Observability built in"],
+        title: "Web & Mobile Apps",
+        body: "Need a custom platform, a client portal, or a mobile app for your business? We build tailored digital tools that automate your processes and make your team and customers' lives easier — on any device.",
+        points: ["Custom business platforms", "iOS & Android mobile apps", "Customer portals & dashboards", "Internal management tools"],
       },
       {
         num: "03 / Service",
-        title: "Mobile apps",
-        body: "Native-feeling iOS and Android apps for products where the phone is the product. Designed in lockstep with the web so customers see one brand, three surfaces.",
-        points: ["React Native + Expo", "Push, deep-links, sharing", "Offline-first data sync", "TestFlight + Play console ops"],
+        title: "Paid Advertising — Google, Meta, TikTok",
+        body: "We manage advertising campaigns on Google, Facebook, Instagram, and TikTok that bring the right people to your business. We handle everything: strategy, ad creation, targeting, and optimization — so you get more customers for your budget.",
+        points: ["Google Search & Shopping Ads", "Facebook & Instagram Ads", "TikTok Ads for e-commerce", "Full campaign management & reporting"],
       },
     ],
   },
 
   horizontalWork: {
-    eyebrow: "Selected work",
+    eyebrow: "Selected projects",
     allProjects: "All projects",
     cases: [
-      { meta: ["EstateX", "2025 · Web app"], title: "Listing engine for an estate portal", desc: "Typed Next.js front, Postgres/Prisma back, Mapbox-driven search. Replaced a creaking PHP build in 14 weeks." },
-      { meta: ["FloteAuto", "2025 · Mobile + Web"], title: "Owner-mechanic app, end-to-end", desc: "Service log, photo intake, parts SKU lookup. Native iOS/Android and a workshop dashboard, designed in lockstep." },
-      { meta: ["Notariat Azur", "2024 · Marketing site"], title: "Editorial relaunch for a notary office", desc: "Calm, rigorous, French-bilingual. Booking flow attached to their case-management API." },
-      { meta: ["Loop Café", "2024 · Web app"], title: "Subscription coffee, run on Stripe", desc: "Self-serve management, pause/resume, gift flows. Two-week build, three years and counting in production." },
+      { img: "/mockup-estatex.png",   meta: ["EstateX", "2025 · Real Estate Platform"], title: "Property search platform rebuilt from scratch", desc: "A modern property listing engine with map search and instant filters. Replaced a slow, outdated system and cut search time by 90%." },
+      { img: "/mockup-floteauto.png", meta: ["FloteAuto", "2025 · Mobile App"], title: "Vehicle service app for owners & mechanics", desc: "A native iOS & Android app that keeps car owners connected with their mechanic — service history, reminders, and photo reporting in one tap." },
+      { img: "/mockup-ecommerce.png", meta: ["Loop Café", "2024 · E-Commerce"], title: "Coffee subscription store on Stripe", desc: "Self-managed subscriptions, pause/resume flows, and gift options. Built in two weeks, generating revenue for three years and counting." },
+      { img: "/mockup-ads.png",       meta: ["Multi-Client", "2025 · Paid Ads"], title: "Google & Meta ad campaigns delivering 4× ROAS", desc: "End-to-end campaign management for retail and service businesses — strategy, creative, targeting, and weekly reporting." },
     ],
   },
 
   servicesBento: {
-    eyebrow: "What we make",
-    heading: "Services tailored for scale.",
+    eyebrow: "Our services",
+    heading: "Everything you need to grow online.",
     services: [
-      { id: "marketing", icon: "web",      title: "Marketing Websites", desc: "High-performance sites built on Next.js, optimized for A+ Lighthouse scores and editorial workflows.", num: "01", hoverColor: "var(--cs-cream)", exploreLabel: "Explore Marketing" },
-      { id: "web-apps",  icon: "app",      title: "Web Applications",  desc: "Internal tools, customer portals, and real-time dashboards designed to be lived in.", num: "02", hoverColor: "var(--cs-rust)", exploreLabel: "Explore Web" },
-      { id: "brand",     icon: "brand",    title: "Brand Systems",     desc: "Identity, typography, and design systems that scale across surfaces and keep your brand coherent.", num: "03", hoverColor: "var(--cs-teal)", exploreLabel: "Explore Brand" },
-      { id: "ecommerce", icon: "ecommerce",title: "E-Commerce",        desc: "High-conversion online stores built with modern headless architectures.", num: "04", hoverColor: "var(--cs-rust)", exploreLabel: "Explore E-Commerce" },
-      { id: "uiux",      icon: "audit",    title: "UI/UX Audits",      desc: "We dive deep into your analytics and flows to earn the click with clarity, not growth-hacks.", num: "05", hoverColor: "var(--cs-teal)", exploreLabel: "Explore Audits" },
-      { id: "mobile",    icon: "mobile",   title: "Mobile Apps",       desc: "Native-feeling iOS and Android apps. React Native + Expo, designed in lockstep with the web.", num: "06", hoverColor: "var(--cs-cream)", exploreLabel: "Explore Mobile" },
+      { id: "marketing", icon: "web",      title: "Presentation Websites",  desc: "Professional websites that showcase your business 24/7, load instantly, and turn visitors into leads or customers.", num: "01", hoverColor: "var(--cs-cream)", exploreLabel: "Explore Websites" },
+      { id: "web-apps",  icon: "app",      title: "Web Applications",       desc: "Custom platforms, client portals, and internal tools built for the way your business actually works.", num: "02", hoverColor: "var(--cs-rust)", exploreLabel: "Explore Web Apps" },
+      { id: "mobile",    icon: "mobile",   title: "Mobile Apps",            desc: "iOS and Android apps your customers will love — designed from the ground up for the best experience on any phone.", num: "03", hoverColor: "var(--cs-teal)", exploreLabel: "Explore Mobile" },
+      { id: "ecommerce", icon: "ecommerce",title: "Online Stores",          desc: "High-converting e-commerce stores with seamless checkout, inventory management, and everything you need to sell online.", num: "04", hoverColor: "var(--cs-rust)", exploreLabel: "Explore E-Commerce" },
+      { id: "ads",       icon: "ads",      title: "Google, Meta & TikTok Ads", desc: "Paid advertising campaigns that put your business in front of the right people — and turn clicks into real revenue.", num: "05", hoverColor: "var(--cs-cream)", exploreLabel: "Explore Ads" },
+      { id: "ai",        icon: "ai",       title: "AI Automation",          desc: "We automate repetitive tasks in your business using AI — from customer responses to lead follow-ups and reporting — so your team focuses on what matters.", num: "06", hoverColor: "var(--cs-teal)", exploreLabel: "Explore AI" },
     ],
   },
 
   homeCTA: {
-    heading: ["Have a thing", "to ship?"],
-    sub: "We take on six to eight projects a year. The next intake is open through August 2026.",
+    heading: ["Ready to grow", "your business?"],
+    sub: "Tell us what you need. We'll reply within 2 working days with a clear plan and honest price.",
     cta1: "Start a project",
     cta2: "See our work",
   },
